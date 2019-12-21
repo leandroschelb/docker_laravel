@@ -1,9 +1,7 @@
 FROM php:7.2-fpm
 
-ARG APP_CODE_PATH_HOST=./coppertec_api
-
 # Copy composer.lock and composer.json
-COPY  ${APP_CODE_PATH_HOST}/composer.lock  ${APP_CODE_PATH_HOST}/composer.json /var/www/
+COPY  ./composer.lock  ./composer.json /var/www/
 
 # Set working directory
 WORKDIR /var/www
@@ -18,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     locales \
     zip \
     jpegoptim optipng pngquant gifsicle \
-    vim \
+    nano \
     unzip \
     git \
     curl
@@ -39,10 +37,10 @@ RUN groupadd -g 1000 www
 RUN useradd -u 1000 -ms /bin/bash -g www www
 
 # Copy existing application directory contents
-COPY  ${APP_CODE_PATH_HOST} /var/www
+COPY  . /var/www
 
 # Copy existing application directory permissions
-COPY --chown=www:www  ${APP_CODE_PATH_HOST} /var/www
+COPY --chown=www:www  . /var/www
 
 # Change current user to www
 USER www
