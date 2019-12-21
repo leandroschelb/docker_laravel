@@ -5,45 +5,52 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
 ## Instalação
 
  - #### va para a pasta do seu projeto laravel
-    cd ~/<nome_do_projeto>
+     - `cd ~/<nome_do_projeto>`
 
  - #### clone o projeto do docker-laravel
-    git clone https://github.com/leandroschelb/docker_laravel.git
+     - `git clone https://github.com/leandroschelb/docker_laravel.git`
 
  - #### mova os arquivos do docker para a pasta root do seu projeto
-    mv docker_laravel/* .
+     - `mv docker_laravel/* .`
 
  - #### delete a pasta do docker_laravel
-    rm -rf docker_laravel
+     - `rm -rf docker_laravel`
 
  - #### adicione as seguintes linhas em seu .gitignore
-    docker-compose.yml
-    Dockerfile
-    mysql/
-    nginx/
-    php/
+     - `docker-compose.yml`
+     - `Dockerfile`
+     - `mysql/`
+     - `nginx/`
+     - `php/`
 
  - #### rode o composer install
-    docker run --rm -v $(pwd):/app composer install
+     - `docker run --rm -v $(pwd):/app composer install`
 
  - #### torna o usuario o proprietario da pasta do projeto
-    sudo chown -R $USER:$USER ~/<nome_do_projeto>
+     - `sudo chown -R $USER:$USER ~/<nome_do_projeto>`
 
  - #### suba os containers
-    docker-compose up -d
+     - `docker-compose up -d`
 
 
  - #### configuração do banco de dados
-    certificar-se que em seu arquivo .env do seu container php
-    DB_HOST = nome_do_container_mysql
+     - `certificar-se que em seu arquivo .env do seu container php`
+     - `DB_HOST = nome_do_container_mysql`
 
- - #### caso o projeto não possua jwt não utilizar os comandos que iniciam com php
-    docker-compose exec app php artisan key:generate
-    php artisan jwt:secret
-    php artisan config:clear
-    php artisan config:cache
-    docker-compose exec app php artisan config:cache
-
-    docker-compose exec db bash
-    mysql -u root -p
-    GRANT ALL ON laravel.* TO 'leandro'@'%' IDENTIFIED BY 'toor';
+ - #### Abre terminal no container app
+     - `docker-compose exec app bash`
+ - #### Gere a key
+     - `app php artisan key:generate`
+ - #### Se a aplicação tiver jwt
+     - `php artisan jwt:secret`
+ - #### limpa cache antigo
+     - `php artisan config:clear`
+     - `php artisan config:cache`
+     - `app php artisan config:cache`
+     
+ - #### saia do container anterior e entre no banco de dados
+     - `docker-compose exec db bash`    
+ - #### logue como root
+     - `mysql -u root -p minha_senha_root_mysql`
+ - #### crie um usuario pra você
+     - `GRANT ALL ON laravel.* TO 'seu_nome'@'%' IDENTIFIED BY 'sua_senha';`
