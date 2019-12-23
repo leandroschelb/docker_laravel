@@ -38,11 +38,11 @@ services:
   #MySQL Service
   db:
     image: mysql:5.7.22
-    container_name: mysql_coppertec
+    container_name: mysql
     restart: unless-stopped
     tty: true
     environment:
-      MYSQL_DATABASE: banco_coppertec
+      MYSQL_DATABASE: banco_laravel
       MYSQL_ROOT_PASSWORD: minha_senha_root_mysql
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
