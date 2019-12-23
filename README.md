@@ -53,7 +53,7 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
      
  - #### saia do container anterior e entre no banco de dados
      - `docker-compose exec db bash`    
- - #### logue como root
-     - `mysql -u root -p minha_senha_root_mysql`
+ - #### logue como root senha default: minha_senha_root_mysql
+     - `mysql -u root -p`
  - #### crie um usuario pra você
      - `GRANT ALL ON laravel.* TO 'seu_nome'@'%' IDENTIFIED BY 'sua_senha';`
