@@ -16,6 +16,9 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
  - #### delete a pasta do docker_laravel
      - `rm -rf docker_laravel`
 
+ - #### troque o nome dos containers
+    - `troque o nome dos containers para por exemplo: app_nome_do_projeto`
+
  - #### adicione as seguintes linhas em seu .gitignore
      - `docker-compose.yml`
      - `Dockerfile`
