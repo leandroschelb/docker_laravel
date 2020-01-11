@@ -57,3 +57,11 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
      - `mysql -u root -p`
  - #### crie um usuario pra você
      - `GRANT ALL ON laravel.* TO 'seu_nome'@'%' IDENTIFIED BY 'sua_senha';`
+
+## Possíveis problemas
+
+ - #### The stream or file "/var/www/mydomain.com/storage/logs/laravel.log" could not be opened: failed to open stream: Permission denied
+    -  Execute os seguintes comandos no seu container PHP na pasta var/www:
+    - `chgrp -R www-data storage bootstrap/cache`
+    - `chmod -R ug+rwx storage bootstrap/cache`
+
