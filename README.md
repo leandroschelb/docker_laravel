@@ -35,21 +35,21 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
  - #### suba os containers
      - `docker-compose up -d`
 
- - #### Abre terminal no container app
-     - `docker-compose exec app bash`
+ - #### Abre terminal no container php
+     - `docker-compose exec nome_do_container_php bash`
 
  - #### configuração do banco de dados
      - `certificar-se que em seu arquivo .env do seu container php`
      - `DB_HOST = nome_do_container_mysql`
 
  - #### Gere a key
-     - `app php artisan key:generate`
+     - `php artisan key:generate`
  - #### Se a aplicação tiver jwt
      - `php artisan jwt:secret`
  - #### limpa cache antigo
      - `php artisan config:clear`
      - `php artisan config:cache`
-     - `app php artisan config:cache`
+     - `php artisan config:cache`
      
  - #### saia do container anterior e entre no banco de dados
      - `docker-compose exec db bash`    
