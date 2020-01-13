@@ -36,7 +36,7 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
      - `docker-compose up -d`
 
  - #### Abre terminal no container php
-     - `docker-compose exec nome_do_container_php bash`
+     - `docker exec -it nome_do_container_php bash`
 
  - #### configuração do banco de dados
      - `certificar-se que em seu arquivo .env do seu container php`
