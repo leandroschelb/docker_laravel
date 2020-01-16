@@ -22,6 +22,9 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
  - #### troque o nome dos containers
     - `troque o nome dos containers para por exemplo: app_nome_do_projeto`
 
+ - #### certifique-se de criar um volume novo para o banco de dados
+    - `troque o nome do volume para por exemplo: db_data1`
+
  - #### adicione as seguintes linhas em seu .gitignore
      - `docker-compose.yml`
      - `Dockerfile`
@@ -35,28 +38,32 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
  - #### torna o usuario o proprietario da pasta do projeto
      - `sudo chown -R $USER:$USER ~/<nome_do_projeto>`
 
+ - #### configuração do banco de dados
+     - `certificar-se que em seu arquivo .env do seu projeto`
+     - `DB_HOST = nome_do_container_mysql`
+     
  - #### suba os containers
      - `docker-compose up -d`
 
  - #### Abre terminal no container php
      - `docker exec -it nome_do_container_php bash`
-
- - #### configuração do banco de dados
-     - `certificar-se que em seu arquivo .env do seu container php`
-     - `DB_HOST = nome_do_container_mysql`
-
+     
  - #### Gere a key
      - `php artisan key:generate`
+     
  - #### Se a aplicação tiver jwt
      - `php artisan jwt:secret`
+     
  - #### limpa cache antigo
      - `php artisan config:clear`
      - `php artisan config:cache`
      
  - #### saia do container anterior e entre no banco de dados
-     - `docker-compose exec db bash`    
+     - `docker exec -it nome_container_db bash`    
+     
  - #### logue como root senha default: minha_senha_root_mysql
      - `mysql -u root -p`
+     
  - #### crie um usuario pra você
      - `GRANT ALL ON laravel.* TO 'seu_nome'@'%' IDENTIFIED BY 'sua_senha';`
 
