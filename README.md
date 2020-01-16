@@ -9,6 +9,9 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
 
  - #### clone o projeto do docker-laravel
      - `git clone https://github.com/leandroschelb/docker_laravel.git`
+     
+ - #### remova README para evitar sobreescrita
+     - `rm docker_laravel/README.md`
 
  - #### mova os arquivos do docker para a pasta root do seu projeto
      - `mv docker_laravel/* .`
