@@ -52,7 +52,6 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
  - #### limpa cache antigo
      - `php artisan config:clear`
      - `php artisan config:cache`
-     - `php artisan config:cache`
      
  - #### saia do container anterior e entre no banco de dados
      - `docker-compose exec db bash`    
