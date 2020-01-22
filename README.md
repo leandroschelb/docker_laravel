@@ -41,6 +41,7 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
  - #### configuração do banco de dados
      - `certificar-se que em seu arquivo .env do seu projeto`
      - `DB_HOST = nome_do_container_mysql`
+     - `DB_PORT= porta guest do container mysql` (a porta da direita no bind)
      
  - #### suba os containers
      - `docker-compose up -d`
