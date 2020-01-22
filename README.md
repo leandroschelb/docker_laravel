@@ -66,6 +66,13 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
      
  - #### crie um usuario pra você
      - `GRANT ALL ON laravel.* TO 'seu_nome'@'%' IDENTIFIED BY 'sua_senha';`
+     
+     
+
+ - #### adicione o seguinte alias em seu ~/.bashrc (evita o docker criar arquivos como root)
+     -  alias `docker-compose-up-d="CURRENT_UID=$(id -u):$(id -g) docker-compose up -d"`
+     -  execute o docker-compose como docker-compose-up-d tudo junto.
+
 
 ## Possíveis problemas
 
