@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: digitalocean.com/php
-    container_name: php
+    container_name: php_coppertec_api
     restart: unless-stopped
     tty: true
     environment:
@@ -19,15 +19,16 @@ services:
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
+    user: ${CURRENT_UID}
 
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: webserver
+    container_name: nginx_coppertec_api
     restart: unless-stopped
     tty: true
     ports:
-      - "80:80"
+      - "8000:80"
       - "443:443"
     volumes:
       - .:/var/www
@@ -38,17 +39,30 @@ services:
   #MySQL Service
   db:
     image: mysql:5.7.22
-    container_name: mysql
+    container_name: mysql_coppertec_api
     restart: unless-stopped
     tty: true
     environment:
-      MYSQL_DATABASE: banco_laravel
-      MYSQL_ROOT_PASSWORD: minha_senha_root_mysql
+      MYSQL_DATABASE: coppertec
+      MYSQL_ROOT_PASSWORD: senha_root
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    ports:
+      - "3306:3306"
     volumes:
-      - dbdata:/var/lib/mysql/
+      - dbdata2:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+    
+  #SQLite Database para testes
+  sqlite3:
+    image: nouchka/sqlite3:latest
+    container_name: sqlite_coppertec_api
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./sqlite_db_teste/:/root/db/
     networks:
       - app-network
 
@@ -58,5 +72,5 @@ networks:
     driver: bridge
 #Volumes
 volumes:
-  dbdata:
+  dbdata2:
     driver: local
