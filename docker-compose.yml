@@ -3,10 +3,7 @@ services:
 
   #PHP Service
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: digitalocean.com/php
+    image: leandroschelb/php_composer:0.1.0
     container_name: php_coppertec_api
     restart: unless-stopped
     tty: true
@@ -19,7 +16,6 @@ services:
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
     networks:
       - app-network
-    user: ${CURRENT_UID}
 
   #Nginx Service
   webserver:
@@ -50,7 +46,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - dbdata2:/var/lib/mysql/
+      - dbdata:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
@@ -72,5 +68,5 @@ networks:
     driver: bridge
 #Volumes
 volumes:
-  dbdata2:
+  dbdata:
     driver: local
