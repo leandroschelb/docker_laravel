@@ -43,13 +43,8 @@ Este é um projeto pessoal para criar um ambiente de desenvolvimento laravel doc
      - `DB_HOST = nome_do_container_mysql`
      - `DB_PORT= porta guest do container mysql` (a porta da direita no bind)
      
-
- - #### adicione o seguinte alias em seu ~/.bashrc (evita o docker criar arquivos como root)
-     -  `alias docker-compose-up-d="CURRENT_UID=$(id -u):$(id -g) docker-compose up -d"`
-     -  execute o docker-compose como `docker-compose-up-d` tudo junto.
-     
  - #### suba os containers
-     - `docker-compose-up-d`
+     - `docker-compose up -d`
 
  - #### Abre terminal no container php
      - `docker exec -it nome_do_container_php bash`
