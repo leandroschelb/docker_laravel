@@ -3,7 +3,7 @@ services:
 
   #PHP Service
   app:
-    image: leandroschelb/php_composer:0.1.0
+    image: leandroschelb/php_composer:0.2.1
     container_name: php_coppertec_api
     restart: unless-stopped
     tty: true
